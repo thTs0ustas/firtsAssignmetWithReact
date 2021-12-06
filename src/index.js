@@ -2,14 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
+
 import { StateProvider } from "./contextApi/state";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <Router>
-    <StateProvider>
+  <StateProvider>
+    <BrowserRouter>
       <App />
-    </StateProvider>
-  </Router>,
+    </BrowserRouter>
+  </StateProvider>,
   document.getElementById("root")
 );

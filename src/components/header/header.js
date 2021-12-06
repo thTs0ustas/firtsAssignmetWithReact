@@ -6,27 +6,20 @@ import {
   DropdownToggle,
   Nav,
   Navbar,
-  NavbarText,
   NavbarToggler,
   NavItem,
   UncontrolledDropdown,
 } from "reactstrap";
 import "./header.css";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-Header.propTypes = {
-  logImg: PropTypes.string.isRequired,
-};
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <div className="bg-header">
-      <Navbar expand="md" light>
-        <Link className="navbar-brand" to="/">
-          <img className="logo img-fluid" src="../../assets/stumbleupon.png" alt="" />
-        </Link>
+      <Navbar className="" expand="md" dark>
+        <Link className="navbar-brand logo" to="/" />
         <NavbarToggler className="nv-header me-2" onClick={() => setIsOpen(!isOpen)} />
         <Collapse navbar isOpen={isOpen}>
           <Nav className="me-auto align-items-md-center custom-nav" navbar>
@@ -36,7 +29,7 @@ export function Header() {
               </Link>
             </NavItem>
             <NavItem>
-              <Link className={"nav-link"} to="/">
+              <Link className={"nav-link"} to="/studentsRegistrations">
                 Students
               </Link>
             </NavItem>
@@ -46,22 +39,26 @@ export function Header() {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem>
-                  <Link className={"nav-link"} to={"/"}>
+                  <Link
+                    className={"nav-link"}
+                    style={{ color: "#1d1010" }}
+                    to={"/trainers"}
+                  >
                     Trainers
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link className={"nav-link"} to={"/"}>
+                  <Link className={"nav-link"} style={{ color: "#1d1010" }} to={"/"}>
                     Students
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link className={"nav-link"} to={"/"}>
+                  <Link className={"nav-link"} style={{ color: "#1d1010" }} to={"/"}>
                     Courses
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link className={"nav-link"} to={"/"}>
+                  <Link className={"nav-link"} style={{ color: "#1d1010" }} to={"/"}>
                     Assignments
                   </Link>
                 </DropdownItem>
@@ -73,10 +70,6 @@ export function Header() {
               </Link>
             </NavItem>
           </Nav>
-
-          <NavbarText>
-            <span className="nv-header">Private School</span>
-          </NavbarText>
         </Collapse>
       </Navbar>
     </div>

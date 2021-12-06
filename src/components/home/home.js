@@ -4,12 +4,14 @@ import "./home.css";
 
 export const Home = () => {
   return (
-    <Container fluid>
-      <Row className="heading-container">
-        <h2 className="heading1">Private</h2>
+    <div className="bg-main">
+      <Container fluid>
+        <Row className="heading-container">
+          <h2 className="heading1">Private</h2>
 
-        <h2 className="heading2">School</h2>
-      </Row>
-    </Container>
+          <h2 className="heading2">School</h2>
+        </Row>
+      </Container>
+    </div>
   );
 };

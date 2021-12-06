@@ -17,12 +17,12 @@ export const useTrainers = () => {
     event.preventDefault();
 
     setTrainersInput(trainerInitial);
-    dispatch({ type: "trainerState", payload: trainersInput });
+    dispatch({ type: "trainerState", payload: { ...trainersInput, id: idCounter } });
     idCounter++;
   };
-  const handleInvalidSubmit = () => {
-    setTrainersInput({ ...trainerInitial, error: true });
-  };
+  // const handleInvalidSubmit = () => {
+  //   setTrainersInput({ ...trainerInitial, error: true });
+  // };
   const onChange = (event) => {
     event.preventDefault();
     setTrainersInput({
@@ -30,5 +30,5 @@ export const useTrainers = () => {
       [event.target.id]: event.target.value,
     });
   };
-  return { trainersInput, onSubmit, onChange, handleInvalidSubmit };
+  return { trainersInput, onSubmit, onChange };
 };

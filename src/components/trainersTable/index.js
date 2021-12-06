@@ -1,0 +1,1 @@
+export { TrainersTable } from "./TrainersTable";

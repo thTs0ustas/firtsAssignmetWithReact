@@ -4,6 +4,14 @@ const StateContext = React.createContext({});
 
 const stateReducer = (state, { type, payload }) => {
   switch (type) {
+    case "delete": {
+      return {
+        ...state,
+        [payload.statePart]: state[payload.statePart].filter(
+          (trainer) => trainer.id !== payload.id
+        ),
+      };
+    }
     case "trainerState": {
       return { ...state, trainerState: [...state.trainerState, payload] };
     }
