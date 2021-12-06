@@ -1,5 +1,5 @@
 import React from "react";
-import { useStateProvider } from "../../contextApi/state";
+import { actionTypes, useStateProvider } from "../../contextApi/state";
 import { Button, Container, Table } from "reactstrap";
 import { RiDeleteBin6Fill } from "react-icons/all";
 import "./trainersTable.css";
@@ -7,7 +7,7 @@ import "./trainersTable.css";
 export const TrainersTable = () => {
   const [state, dispatch] = useStateProvider();
   const deleteTrainer = (id) =>
-    dispatch({ type: "delete", payload: { statePart: "trainerState", id } });
+    dispatch({ type: actionTypes.delete, payload: { statePart: "trainerState", id } });
 
   return (
     <Container className="mainTable">
@@ -17,7 +17,7 @@ export const TrainersTable = () => {
             <th>#</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Course</th>
+            <th>Language</th>
             <th>Edit</th>
           </tr>
         </thead>

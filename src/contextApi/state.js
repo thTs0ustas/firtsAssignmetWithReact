@@ -2,9 +2,17 @@ import React, { useContext, useReducer } from "react";
 
 const StateContext = React.createContext({});
 
+export const actionTypes = {
+  delete: "delete",
+  trState: "trainerState",
+  stState: "studentState",
+  courState: "courseState",
+  assignState: "assignments",
+};
+
 const stateReducer = (state, { type, payload }) => {
   switch (type) {
-    case "delete": {
+    case actionTypes.delete: {
       return {
         ...state,
         [payload.statePart]: state[payload.statePart].filter(
@@ -12,16 +20,16 @@ const stateReducer = (state, { type, payload }) => {
         ),
       };
     }
-    case "trainerState": {
+    case actionTypes.trState: {
       return { ...state, trainerState: [...state.trainerState, payload] };
     }
-    case "studentState": {
+    case actionTypes.stState: {
       return { ...state, studentState: [...state.studentState, payload] };
     }
-    case "courses": {
+    case actionTypes.courState: {
       return { ...state, courses: [...state.courses, payload] };
     }
-    case "assignments": {
+    case actionTypes.assignState: {
       return { ...state, courses: [...state.assignments, payload] };
     }
     default:
@@ -34,6 +42,7 @@ const initialState = {
   studentState: [],
   courses: [],
   assignments: [],
+  languages: ["Java", "Javascript", "C++", "Python"],
 };
 
 // eslint-disable-next-line react/prop-types

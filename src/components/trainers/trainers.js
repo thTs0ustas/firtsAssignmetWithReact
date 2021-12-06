@@ -3,8 +3,10 @@ import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 
 import "./trainers.css";
 import { useTrainers } from "./useTrainers";
+import { useStateProvider } from "../../contextApi/state";
 
 export const Trainers = () => {
+  const [state] = useStateProvider();
   const { trainersInput, onSubmit, onChange } = useTrainers();
 
   return (
@@ -18,7 +20,6 @@ export const Trainers = () => {
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
               <Label for="firstName">First Name</Label>
               <Input
-                required
                 id="firstName"
                 type="text"
                 placeholder="Enter First Name...."
@@ -47,7 +48,7 @@ export const Trainers = () => {
               />
             </FormGroup>
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
-              <Label for="courseSelect">Select</Label>
+              <Label for="courseSelect">Select Programming Language</Label>
               <Input
                 type="select"
                 value={trainersInput.courseSelect}
@@ -56,12 +57,11 @@ export const Trainers = () => {
                 onChange={onChange}
               >
                 <option>-</option>
-                <option>1</option>
-                <option>2</option>
-
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                {state.languages.map((language) => (
+                  <React.Fragment key={language}>
+                    <option>{language}</option>
+                  </React.Fragment>
+                ))}
               </Input>
             </FormGroup>
             <div className="mb-3 col-md-10 offset-md-1 col-sm-12 ">

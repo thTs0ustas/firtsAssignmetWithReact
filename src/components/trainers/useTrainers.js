@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStateProvider } from "../../contextApi/state";
+import { actionTypes, useStateProvider } from "../../contextApi/state";
 
 let idCounter = 0;
 const trainerInitial = {
@@ -15,9 +15,14 @@ export const useTrainers = () => {
   const [, dispatch] = useStateProvider();
   const onSubmit = (event) => {
     event.preventDefault();
-
+    // TODO: Better validation
+    for (let i in trainersInput) {
+      if (trainersInput[i] === "") {
+        return alert("All inputs must be filled");
+      }
+    }
     setTrainersInput(trainerInitial);
-    dispatch({ type: "trainerState", payload: { ...trainersInput, id: idCounter } });
+    dispatch({ type: actionTypes.trState, payload: { ...trainersInput, id: idCounter } });
     idCounter++;
   };
 
