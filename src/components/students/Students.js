@@ -1,47 +1,24 @@
 import React from "react";
 import "./students.css";
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  ListGroup,
-  ListGroupItem,
-  Row,
-} from "reactstrap";
-import { useStateProvider } from "../../contextApi/state";
+import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
+// import { useStateProvider } from "../../contextApi/state";
 import { useTrainers } from "../trainers/useTrainers";
 
 const Students = () => {
   // const [targetId] = React.useState("1");
-  const [state] = useStateProvider();
+  // const [state] = useStateProvider();
   // const [isOpen, setIsOpen] = useState("1");
   const { trainersInput, onSubmit, onChange } = useTrainers();
   return (
     <Container>
       <Row className="flex-md-nowrap">
-        <Col md={3} sm={3}>
-          <Row>
-            <ListGroup style={{ paddingLeft: "12px" }} className="justify-content-center">
-              <h3 className="h3">Assignments</h3>
-              {state.trainerState.map((trainer) => (
-                <ListGroupItem accordionid={trainer.id} key={trainer.id}>
-                  {trainer.firstName} {trainer.lastName}
-                </ListGroupItem>
-              ))}
-            </ListGroup>
-          </Row>
-        </Col>
-        <Col className="col-md-8">
+        <Col className="col-md-12">
           <Row>
             <Form>
-              <h3 className="mb-3 col-lg-8 offset-lg-2 col-sm-12 ">
+              <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                 Students Registration
               </h3>
-              <FormGroup className="mb-3 col-lg-8 offset-lg-2 col-sm-12 ">
+              <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                 <Label for="firstName">First Name</Label>
                 <Input
                   required
@@ -52,7 +29,7 @@ const Students = () => {
                   onChange={onChange}
                 />
               </FormGroup>
-              <FormGroup className="mb-3 col-lg-8 offset-lg-2 col-sm-12 ">
+              <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                 <Label for="lastName">Last Name</Label>
                 <Input
                   id="lastName"
@@ -62,7 +39,7 @@ const Students = () => {
                   onChange={onChange}
                 />
               </FormGroup>
-              <FormGroup className="mb-3 col-lg-8 offset-lg-2 col-sm-12 ">
+              <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                 <Label for="email">Email</Label>
                 <Input
                   id="email"
@@ -72,7 +49,7 @@ const Students = () => {
                   onChange={onChange}
                 />
               </FormGroup>
-              <FormGroup className="mb-3 col-lg-8 offset-lg-2 col-sm-12 ">
+              <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                 <Label for="courseSelect">Select</Label>
                 <Input
                   type="select"
@@ -90,7 +67,7 @@ const Students = () => {
                   <option>5</option>
                 </Input>
               </FormGroup>
-              <div className="mb-3 col-lg-8 offset-lg-2 col-sm-12 ">
+              <div className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                 <Button className="form-buttons" color="primary" onClick={onSubmit}>
                   Submit
                 </Button>

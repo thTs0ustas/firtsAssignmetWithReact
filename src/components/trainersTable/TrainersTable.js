@@ -10,15 +10,15 @@ export const TrainersTable = () => {
     dispatch({ type: "delete", payload: { statePart: "trainerState", id } });
 
   return (
-    <Container>
-      <Table className="trainer-table" hover responsive size="">
+    <Container className="mainTable">
+      <Table className="trainer-table" hover responsive size="md">
         <thead>
           <tr>
             <th>#</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Course</th>
-            <th>Remove</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>

@@ -20,9 +20,7 @@ export const useTrainers = () => {
     dispatch({ type: "trainerState", payload: { ...trainersInput, id: idCounter } });
     idCounter++;
   };
-  // const handleInvalidSubmit = () => {
-  //   setTrainersInput({ ...trainerInitial, error: true });
-  // };
+
   const onChange = (event) => {
     event.preventDefault();
     setTrainersInput({

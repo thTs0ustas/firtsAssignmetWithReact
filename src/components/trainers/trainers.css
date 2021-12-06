@@ -1,4 +1,45 @@
 #trainersForm{
+    color: white;
+
+    background-color: rgba(42, 42, 66, 0.46);
+    display: flex;
+
+    align-items: center;
+    height: 100%;
+    clip-path: polygon(0 18%, 100% 5%, 100% 82%, 0 95%);
+  }
+@media screen and (max-width: 780px) {
+    #trainersForm{
+
+        clip-path: polygon(0 12%, 100% 5%, 100% 88%, 0 95%);
+    }
+}@media screen and (max-width: 450px) {
+    #trainersForm{
+        display: block;
+
+        align-items: center;
+        min-height: 800px;
+        clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
+    }
+    .outer-div{
+        justify-content: center;
+    }
+    .trainer-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
+        width: 97%;
+        min-height: 800px;
+    }
+}
+.outer-div{
+    height: 100%;
+    background: url("../../assets/0_1PEO3pjtOGeOJoXD.jpg") no-repeat center;
+    background-size: cover;
+}
+.trainer-container{
+
     padding: 10px 0;
 
 }

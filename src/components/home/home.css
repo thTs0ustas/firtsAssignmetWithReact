@@ -17,7 +17,7 @@
 }
 .bg-main{
     min-width: 360px;
-    min-height: 400px;
+    min-height: 600px;
     background: url("../../assets/coding.jpg") no-repeat center;
     background-size: cover;
     width: 100%;
