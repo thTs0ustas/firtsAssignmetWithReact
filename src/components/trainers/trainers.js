@@ -14,9 +14,7 @@ export const Trainers = () => {
       <div id="trainersForm">
         <Container className="trainer-container">
           <Form>
-            <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12">
-              Trainers Registration
-            </h3>
+            <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12">Trainer Registration</h3>
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
               <Label for="firstName">First Name</Label>
               <Input
@@ -48,7 +46,7 @@ export const Trainers = () => {
               />
             </FormGroup>
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
-              <Label for="courseSelect">Select Programming Language</Label>
+              <Label for="courseSelect">Programming Language</Label>
               <Input
                 type="select"
                 value={trainersInput.courseSelect}

@@ -48,7 +48,11 @@ export function Header() {
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link className={"nav-link"} style={{ color: "#1d1010" }} to={"/"}>
+                  <Link
+                    className={"nav-link"}
+                    style={{ color: "#1d1010" }}
+                    to={"/students"}
+                  >
                     Students
                   </Link>
                 </DropdownItem>

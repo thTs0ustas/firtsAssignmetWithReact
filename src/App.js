@@ -10,6 +10,8 @@ import { TrainersTable } from "./components/trainersTable";
 import { Header } from "./components/header";
 import { Students } from "./components/students";
 import { IndividualTrainer } from "./components/individualTrainer/individualTrainer";
+import { StudentsTable } from "./components/studentsTable/studentsTable";
+import { IndividualStudent } from "./components/individualStudent/IndividualStudent";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/trainers/:lastName" element={<IndividualTrainer />} />
 
         <Route path="/studentsRegistrations" element={<Students />} />
+        <Route exact path="/students" element={<StudentsTable />} />
+        <Route path="/students/:lastName" element={<IndividualStudent />} />
       </Routes>
 
       <Footer />

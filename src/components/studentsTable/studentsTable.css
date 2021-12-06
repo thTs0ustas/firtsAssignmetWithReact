@@ -1,11 +1,11 @@
-.trainer-table tbody tr {
+.student-table tbody tr {
   cursor: pointer;
   vertical-align: baseline;
 }
 thead tr th {
   text-align: center;
 }
-.trainer-table tbody tr td,
+.student-table tbody tr td,
 th {
   text-align: center;
 }

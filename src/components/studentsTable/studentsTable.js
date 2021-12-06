@@ -2,19 +2,19 @@ import React from "react";
 import { actionTypes, useStateProvider } from "../../contextApi/state";
 import { Button, Container, Table } from "reactstrap";
 import { RiDeleteBin6Fill } from "react-icons/all";
-import "./trainersTable.css";
+import "./studentsTable.css";
 import { useNavigate } from "react-router-dom";
-// import { Route } from "react-router-dom";
 
-export const TrainersTable = () => {
+export const StudentsTable = () => {
   const [state, dispatch] = useStateProvider();
   const deleteTrainer = (id) =>
     dispatch({ type: actionTypes.delete, payload: { statePart: "trainerState", id } });
   const navigate = useNavigate();
+
   return (
     <div className="outer-table">
       <Container className="mainTable">
-        <Table className="trainer-table" hover responsive size="md">
+        <Table className="student-table" hover responsive size="md">
           <thead>
             <tr>
               <th>#</th>
@@ -25,22 +25,22 @@ export const TrainersTable = () => {
             </tr>
           </thead>
           <tbody>
-            {state.trainerState.map((trainer, index) => {
+            {state.studentState.map((student, index) => {
               return (
                 <tr
-                  key={trainer.id}
-                  onClick={() => navigate(`/trainers/${trainer.lastName.toLowerCase()}`)}
+                  key={student.id}
+                  onClick={() => navigate(`/students/${student.lastName.toLowerCase()}`)}
                 >
                   <th scope="row">{index + 1}</th>
-                  <td>{trainer.firstName}</td>
-                  <td>{trainer.lastName}</td>
-                  <td>{trainer.courseSelect}</td>
+                  <td>{student.firstName}</td>
+                  <td>{student.lastName}</td>
+                  <td>{student.courseSelect}</td>
 
                   <td>
                     <Button
                       onClick={(event) => {
                         event.stopPropagation();
-                        deleteTrainer(trainer.id);
+                        deleteTrainer(student.id);
                       }}
                     >
                       <RiDeleteBin6Fill />

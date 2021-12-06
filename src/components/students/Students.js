@@ -2,13 +2,12 @@ import React from "react";
 import "./students.css";
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 // import { useStateProvider } from "../../contextApi/state";
-import { useTrainers } from "../trainers/useTrainers";
+import { useStudents } from "./useStudents";
+import { useStateProvider } from "../../contextApi/state";
 
 const Students = () => {
-  // const [targetId] = React.useState("1");
-  // const [state] = useStateProvider();
-  // const [isOpen, setIsOpen] = useState("1");
-  const { trainersInput, onSubmit, onChange } = useTrainers();
+  const [state] = useStateProvider();
+  const { studentsInput, onSubmit, onChange } = useStudents();
   return (
     <Container>
       <Row className="flex-md-nowrap">
@@ -25,7 +24,7 @@ const Students = () => {
                   id="firstName"
                   type="text"
                   placeholder="Enter First Name...."
-                  value={trainersInput.firstName}
+                  value={studentsInput.firstName}
                   onChange={onChange}
                 />
               </FormGroup>
@@ -34,7 +33,7 @@ const Students = () => {
                 <Input
                   id="lastName"
                   type="text"
-                  value={trainersInput.lastName}
+                  value={studentsInput.lastName}
                   placeholder="Enter Last Name....."
                   onChange={onChange}
                 />
@@ -43,9 +42,18 @@ const Students = () => {
                 <Label for="email">Email</Label>
                 <Input
                   id="email"
-                  value={trainersInput.email}
+                  value={studentsInput.email}
                   type="email"
                   placeholder="Enter Email......"
+                  onChange={onChange}
+                />
+              </FormGroup>
+              <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
+                <Label for="dateOfBirth">Date of Birth</Label>
+                <Input
+                  id="dateOfBirth"
+                  type="date"
+                  value={studentsInput.dateOfBirth}
                   onChange={onChange}
                 />
               </FormGroup>
@@ -53,18 +61,17 @@ const Students = () => {
                 <Label for="courseSelect">Select</Label>
                 <Input
                   type="select"
-                  value={trainersInput.courseSelect}
+                  value={studentsInput.courseSelect}
                   name="select"
                   id="courseSelect"
                   onChange={onChange}
                 >
                   <option>-</option>
-                  <option>1</option>
-                  <option>2</option>
-
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  {state.languages.map((language) => (
+                    <React.Fragment key={language}>
+                      <option>{language}</option>
+                    </React.Fragment>
+                  ))}
                 </Input>
               </FormGroup>
               <div className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
