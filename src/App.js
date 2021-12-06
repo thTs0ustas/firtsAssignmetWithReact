@@ -9,6 +9,7 @@ import { Home } from "./components/home";
 import { TrainersTable } from "./components/trainersTable";
 import { Header } from "./components/header";
 import { Students } from "./components/students";
+import { IndividualTrainer } from "./components/individualTrainer/individualTrainer";
 
 const App = () => {
   return (
@@ -18,7 +19,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trainersRegistration" element={<Trainers />} />
-        <Route path="/trainers" element={<TrainersTable />} />
+        <Route exact path="/trainers" element={<TrainersTable />} />
+        <Route path="/trainers/:lastName" element={<IndividualTrainer />} />
+
         <Route path="/studentsRegistrations" element={<Students />} />
       </Routes>
 
