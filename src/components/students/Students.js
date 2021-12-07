@@ -1,7 +1,6 @@
 import React from "react";
 import "./students.css";
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
-// import { useStateProvider } from "../../contextApi/state";
 import { useStudents } from "./useStudents";
 import { useStateProvider } from "../../contextApi/state";
 
@@ -40,7 +39,7 @@ const Students = () => {
         </Row>
 
         <Row className="flex-md-nowrap  custom-form">
-          <Col className="col-md-12">
+          <Col md={12}>
             <Row>
               <Form>
                 <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
