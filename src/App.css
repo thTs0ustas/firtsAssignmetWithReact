@@ -4,5 +4,9 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
-
+.outer-container {
+  margin: 0 auto;
+  max-width: 1400px;
+  background-color: #a9a9a9;
+  box-shadow: 1px 1px 10px #282c34;
+}
