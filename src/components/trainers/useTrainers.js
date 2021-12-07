@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { actionTypes, useStateProvider } from "../../contextApi/state";
+import { formValidation } from "../../customFunctions/formValidation";
 
 let idCounter = 0;
 const trainerInitial = {
@@ -13,6 +14,11 @@ const trainerInitial = {
 export const useTrainers = () => {
   const [trainersInput, setTrainersInput] = useState(trainerInitial);
   const [, dispatch] = useStateProvider();
+  const [errors, setErrors] = useState({});
+  useEffect(() => {
+    formValidation(trainersInput, setErrors);
+  }, [trainersInput]);
+
   const onSubmit = (event) => {
     event.preventDefault();
     // TODO: Better validation
@@ -33,5 +39,5 @@ export const useTrainers = () => {
       [event.target.id]: event.target.value,
     });
   };
-  return { trainersInput, onSubmit, onChange };
+  return { trainersInput, onSubmit, onChange, errors };
 };

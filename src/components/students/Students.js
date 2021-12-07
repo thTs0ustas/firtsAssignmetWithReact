@@ -6,7 +6,8 @@ import { useStateProvider } from "../../contextApi/state";
 
 const Students = () => {
   const [state] = useStateProvider();
-  const { studentsInput, onSubmit, onChange } = useStudents();
+  const { studentsInput, onSubmit, onChange, errors } = useStudents();
+
   return (
     <div className="outer-form-div">
       <Container fluid>
@@ -19,15 +20,14 @@ const Students = () => {
           <Col md={8} sm={12} className="offset-md-2">
             <h3>Lorem ipsum dolor sit amet.</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa
-              distinctio, doloribus et expedita fuga illum, minima molestias nesciunt
-              possimus quae repudiandae suscipit tenetur veniam? Lorem ipsum dolor sit
-              amet, consectetur adipisicing elit.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa distinctio,
+              doloribus et expedita fuga illum, minima molestias nesciunt possimus quae repudiandae
+              suscipit tenetur veniam? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa
-              distinctio, doloribus et expedita fuga illum, minima molestias nesciunt
-              possimus quae repudiandae suscipit tenetur veniam?
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa distinctio,
+              doloribus et expedita fuga illum, minima molestias nesciunt possimus quae repudiandae
+              suscipit tenetur veniam?
             </p>
           </Col>
         </Row>
@@ -41,14 +41,13 @@ const Students = () => {
         <Row className="flex-md-nowrap  custom-form">
           <Col md={12}>
             <Row>
-              <Form>
-                <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
-                  Students Registration
-                </h3>
+              <Form onSubmit={onSubmit}>
+                <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12 ">Students Registration</h3>
                 <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                   <Label for="firstName">First Name</Label>
                   <Input
-                    required
+                    valid={errors.firstNameValid === "valid"}
+                    invalid={errors.firstNameValid === "invalid"}
                     id="firstName"
                     type="text"
                     placeholder="Enter First Name...."
@@ -59,6 +58,8 @@ const Students = () => {
                 <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                   <Label for="lastName">Last Name</Label>
                   <Input
+                    valid={errors.lastNameValid === "valid"}
+                    invalid={errors.lastNameValid === "invalid"}
                     id="lastName"
                     type="text"
                     value={studentsInput.lastName}
@@ -69,6 +70,8 @@ const Students = () => {
                 <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                   <Label for="email">Email</Label>
                   <Input
+                    valid={errors.emailValid === "valid"}
+                    invalid={errors.emailValid === "invalid"}
                     id="email"
                     value={studentsInput.email}
                     type="email"
@@ -79,6 +82,8 @@ const Students = () => {
                 <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                   <Label for="dateOfBirth">Date of Birth</Label>
                   <Input
+                    valid={errors.dateOfBirthValid === "valid"}
+                    invalid={errors.dateOfBirthValid === "invalid"}
                     id="dateOfBirth"
                     type="date"
                     value={studentsInput.dateOfBirth}
@@ -88,6 +93,8 @@ const Students = () => {
                 <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                   <Label for="courseSelect">Select</Label>
                   <Input
+                    valid={errors.courseSelectValid === "valid"}
+                    invalid={errors.courseSelectValid === "invalid"}
                     type="select"
                     value={studentsInput.courseSelect}
                     name="select"
@@ -103,7 +110,7 @@ const Students = () => {
                   </Input>
                 </FormGroup>
                 <div className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
-                  <Button className="form-buttons" color="primary" onClick={onSubmit}>
+                  <Button type="submit" className="form-buttons" color="primary">
                     Submit
                   </Button>
                   <Button type="reset" className="form-buttons" color="danger">

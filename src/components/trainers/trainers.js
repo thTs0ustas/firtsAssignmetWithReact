@@ -7,17 +7,19 @@ import { useStateProvider } from "../../contextApi/state";
 
 export const Trainers = () => {
   const [state] = useStateProvider();
-  const { trainersInput, onSubmit, onChange } = useTrainers();
+  const { trainersInput, onSubmit, onChange, errors } = useTrainers();
 
   return (
     <div className="outer-div">
       <div id="trainersForm">
         <Container className="trainer-container">
-          <Form>
+          <Form onSubmit={onSubmit}>
             <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12">Trainer Registration</h3>
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
               <Label for="firstName">First Name</Label>
               <Input
+                valid={errors.firstNameValid === "valid"}
+                invalid={errors.firstNameValid === "invalid"}
                 id="firstName"
                 type="text"
                 placeholder="Enter First Name...."
@@ -28,6 +30,8 @@ export const Trainers = () => {
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
               <Label for="lastName">Last Name</Label>
               <Input
+                valid={errors.lastNameValid === "valid"}
+                invalid={errors.lastNameValid === "invalid"}
                 id="lastName"
                 type="text"
                 value={trainersInput.lastName}
@@ -38,6 +42,8 @@ export const Trainers = () => {
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
               <Label for="email">Email</Label>
               <Input
+                valid={errors.emailValid === "valid"}
+                invalid={errors.emailValid === "invalid"}
                 id="email"
                 value={trainersInput.email}
                 type="email"
@@ -48,6 +54,8 @@ export const Trainers = () => {
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
               <Label for="courseSelect">Programming Language</Label>
               <Input
+                valid={errors.courseSelectValid === "valid"}
+                invalid={errors.courseSelectValid === "invalid"}
                 type="select"
                 value={trainersInput.courseSelect}
                 name="select"
@@ -63,7 +71,7 @@ export const Trainers = () => {
               </Input>
             </FormGroup>
             <div className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
-              <Button className="form-buttons" color="primary" onClick={onSubmit}>
+              <Button type="submit" className="form-buttons" color="primary">
                 Submit
               </Button>
               <Button type="reset" className="form-buttons" color="danger">
