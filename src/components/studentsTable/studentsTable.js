@@ -20,6 +20,7 @@ export const StudentsTable = () => {
               <th>#</th>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Contact</th>
               <th>Language</th>
               <th>Edit</th>
             </tr>
@@ -34,6 +35,7 @@ export const StudentsTable = () => {
                   <th scope="row">{index + 1}</th>
                   <td>{student.firstName}</td>
                   <td>{student.lastName}</td>
+                  <td>{student.email}</td>
                   <td>{student.courseSelect}</td>
 
                   <td>
