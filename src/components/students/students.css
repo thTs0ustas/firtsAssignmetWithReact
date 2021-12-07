@@ -1,11 +1,14 @@
 .outer-form-div {
+  margin: 0 auto;
+  max-width: 1400px;
   background-color: #a9a9a9;
+  box-shadow: 1px 1px 10px #282c34;
 }
 
 .img-title {
   width: 100%;
-  height: 250px;
-  background: url("../../assets/0_1PEO3pjtOGeOJoXD.jpg") center no-repeat;
+  height: 300px;
+  background: url("../../assets/0_1PEO3pjtOGeOJoXD.jpg") 50% 40% no-repeat;
   background-size: cover;
   color: white;
   clip-path: polygon(0 0%, 100% 0%, 100% 82%, 0 95%);
@@ -17,7 +20,6 @@
   margin-bottom: -60px;
   padding: 80px 80px;
   height: 400px;
-  box-shadow: 1px 1px 10px #282c34;
 }
 @media screen and (max-width: 580px) {
   .description {
@@ -51,5 +53,4 @@
   height: 600px;
   background-color: #fff;
   padding: 45px 80px;
-  box-shadow: 1px 1px 10px #282c34;
 }
