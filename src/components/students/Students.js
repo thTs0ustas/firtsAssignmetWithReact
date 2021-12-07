@@ -12,22 +12,25 @@ const Students = () => {
     <div className="outer-form-div">
       <Container fluid>
         <Row>
-          <div className="img-title ">
+          <Col md={8} className="img-title ">
             <h2 className="h2 p-md-5">Make a new start</h2>
-          </div>
+          </Col>
         </Row>
         <Row className="description">
-          <h3>Lorem ipsum dolor sit amet.</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa
-            distinctio, doloribus et expedita fuga illum, minima molestias nesciunt
-            possimus quae repudiandae suscipit tenetur veniam?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa
-            distinctio, doloribus et expedita fuga illum, minima molestias nesciunt
-            possimus quae repudiandae suscipit tenetur veniam?
-          </p>
+          <Col md={8} sm={12} className="offset-md-2">
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa
+              distinctio, doloribus et expedita fuga illum, minima molestias nesciunt
+              possimus quae repudiandae suscipit tenetur veniam? Lorem ipsum dolor sit
+              amet, consectetur adipisicing elit.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa
+              distinctio, doloribus et expedita fuga illum, minima molestias nesciunt
+              possimus quae repudiandae suscipit tenetur veniam?
+            </p>
+          </Col>
         </Row>
 
         <Row>
