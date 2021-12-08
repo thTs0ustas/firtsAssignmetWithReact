@@ -1,16 +1,16 @@
 import React from "react";
-import { actionTypes, useStateProvider } from "../../contextApi/state";
+import { actionTypes } from "../../contextApi/state";
 import { Button, Container, Table } from "reactstrap";
 import { RiDeleteBin6Fill } from "react-icons/all";
 import "./studentsTable.css";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export const StudentsTable = () => {
-  const [state, dispatch] = useStateProvider();
+export const StudentsTable = ({ studentState, dispatch }) => {
   const deleteTrainer = (id) =>
     dispatch({
       type: actionTypes.delete,
-      payload: { statePart: "trainerState", id },
+      payload: { statePart: "studentState", id },
     });
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ export const StudentsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {state.studentState.map((student, index) => {
+            {studentState.map((student, index) => {
               return (
                 <tr
                   key={student.id}
@@ -59,4 +59,9 @@ export const StudentsTable = () => {
       </Container>
     </div>
   );
+};
+
+StudentsTable.propTypes = {
+  studentState: PropTypes.array,
+  dispatch: PropTypes.func,
 };

@@ -1,12 +1,20 @@
 import React from "react";
 import "./students.css";
-import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+} from "reactstrap";
 import { useStudents } from "./useStudents";
-import { useStateProvider } from "../../contextApi/state";
+import PropTypes from "prop-types";
 
-const Students = () => {
-  const [state] = useStateProvider();
-  const { studentsInput, onSubmit, onChange, errors } = useStudents();
+const Students = ({ languages, dispatch }) => {
+  const { studentsInput, onSubmit, onChange, errors } = useStudents(dispatch);
 
   return (
     <div className="outer-form-div">
@@ -20,14 +28,16 @@ const Students = () => {
           <Col md={8} sm={12} className="offset-md-2">
             <h3>Lorem ipsum dolor sit amet.</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa distinctio,
-              doloribus et expedita fuga illum, minima molestias nesciunt possimus quae repudiandae
-              suscipit tenetur veniam? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
+              culpa distinctio, doloribus et expedita fuga illum, minima
+              molestias nesciunt possimus quae repudiandae suscipit tenetur
+              veniam? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa distinctio,
-              doloribus et expedita fuga illum, minima molestias nesciunt possimus quae repudiandae
-              suscipit tenetur veniam?
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
+              culpa distinctio, doloribus et expedita fuga illum, minima
+              molestias nesciunt possimus quae repudiandae suscipit tenetur
+              veniam?
             </p>
           </Col>
         </Row>
@@ -42,7 +52,9 @@ const Students = () => {
           <Col md={12}>
             <Row>
               <Form onSubmit={onSubmit}>
-                <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12 ">Students Registration</h3>
+                <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
+                  Students Registration
+                </h3>
                 <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
                   <Label for="firstName">First Name</Label>
                   <Input
@@ -102,7 +114,7 @@ const Students = () => {
                     onChange={onChange}
                   >
                     <option>-</option>
-                    {state.languages.map((language) => (
+                    {languages.map((language) => (
                       <React.Fragment key={language}>
                         <option>{language}</option>
                       </React.Fragment>
@@ -110,7 +122,11 @@ const Students = () => {
                   </Input>
                 </FormGroup>
                 <div className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
-                  <Button type="submit" className="form-buttons" color="primary">
+                  <Button
+                    type="submit"
+                    className="form-buttons"
+                    color="primary"
+                  >
                     Submit
                   </Button>
                   <Button type="reset" className="form-buttons" color="danger">
@@ -126,3 +142,8 @@ const Students = () => {
   );
 };
 export { Students };
+
+Students.propTypes = {
+  languages: PropTypes.array,
+  dispatch: PropTypes.func,
+};

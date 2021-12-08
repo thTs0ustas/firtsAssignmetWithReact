@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { actionTypes, useStateProvider } from "../../contextApi/state";
+import { actionTypes } from "../../contextApi/state";
 import { formValidation } from "../../customFunctions/formValidation";
 import { randomId } from "../../customFunctions/randomIdBuilder";
 
@@ -11,9 +11,9 @@ const trainerInitial = {
   id: "",
 };
 
-export const useTrainers = () => {
+export const useTrainers = (dispatch) => {
   const [trainersInput, setTrainersInput] = useState(trainerInitial);
-  const [, dispatch] = useStateProvider();
+  // const [, dispatch] = useStateProvider();
   const [errors, setErrors] = useState({});
   useEffect(() => {
     formValidation(trainersInput, setErrors);
@@ -36,10 +36,10 @@ export const useTrainers = () => {
 
   const onChange = (event) => {
     event.preventDefault();
-    setTrainersInput({
-      ...trainersInput,
+    setTrainersInput((prevState) => ({
+      ...prevState,
       [event.target.id]: event.target.value,
-    });
+    }));
   };
   return { trainersInput, onSubmit, onChange, errors };
 };
