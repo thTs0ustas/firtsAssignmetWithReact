@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { actionTypes, useStateProvider } from "../../contextApi/state";
 import { formValidation } from "../../customFunctions/formValidation";
+import { randomId } from "../../customFunctions/randomIdBuilder";
 
-let idCounter = 0;
 const studentInitial = {
   firstName: "",
   lastName: "",
   email: "",
   dateOfBirth: "",
   courseSelect: "",
-  id: idCounter,
+  id: "",
 };
 
 export const useStudents = () => {
@@ -38,9 +38,8 @@ export const useStudents = () => {
     setStudentsInputInput(studentInitial);
     dispatch({
       type: actionTypes.stState,
-      payload: { ...studentsInput, id: idCounter },
+      payload: { ...studentsInput, id: randomId() },
     });
-    idCounter++;
   };
   const onChange = (event) => {
     event.preventDefault();

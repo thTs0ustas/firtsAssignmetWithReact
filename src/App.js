@@ -2,16 +2,15 @@ import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Footer } from "./components/footer";
-import { Trainers } from "./components/trainers";
-import "./App.css";
-import { Home } from "./components/home";
-import { TrainersTable } from "./components/trainersTable";
-import { Header } from "./components/header";
-import { Students } from "./components/students";
+import { Footer } from "./components";
+import { Trainers } from "./components";
+import { Home } from "./components";
+import { TrainersTable } from "./components";
+import { Header } from "./components";
+import { Students } from "./components";
 import { IndividualTrainer } from "./components/individualTrainer/individualTrainer";
-import { StudentsTable } from "./components/studentsTable/studentsTable";
-import { IndividualStudent } from "./components/individualStudent/IndividualStudent";
+import { StudentsTable } from "./components";
+import { IndividualStudent } from "./components";
 
 const App = () => {
   return (
@@ -26,7 +25,7 @@ const App = () => {
 
         <Route path="/studentsRegistrations" element={<Students />} />
         <Route exact path="/students" element={<StudentsTable />} />
-        <Route path="/students/:lastName" element={<IndividualStudent />} />
+        <Route path="/students/:id" element={<IndividualStudent />} />
       </Routes>
 
       <Footer />

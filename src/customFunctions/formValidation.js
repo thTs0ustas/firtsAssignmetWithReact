@@ -30,7 +30,8 @@ export const formValidation = (data, fn) => {
   }
 
   if (!get("dateOfBirth")(data)) {
-    fn((prevState) => ({ ...prevState, dateOfBirthValid: "" }));
+    fn((prevState) => ({ ...prevState }));
+    // fn((prevState) => ({ ...prevState, dateOfBirthValid: "" }));
   } else if (
     get("dateOfBirth")(data).match(
       /^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/
@@ -42,6 +43,7 @@ export const formValidation = (data, fn) => {
   }
 
   if (!get("courseSelect")(data) || get("courseSelect")(data) === "-") {
+    // fn((prevState) => ({ ...prevState }));
     fn((prevState) => ({ ...prevState, courseSelectValid: "" }));
   } else if (get("courseSelect")(data) === "") {
     fn((prevState) => ({ ...prevState, courseSelectValid: "invalid" }));

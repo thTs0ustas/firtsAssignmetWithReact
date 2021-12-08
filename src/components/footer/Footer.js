@@ -19,16 +19,16 @@ export function Footer() {
             <h5 className="text-uppercase">Links</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#!">Link 1</a>
+                <a href="#">Link 1</a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
+                <a href="#">Link 2</a>
               </li>
               <li>
-                <a href="#!">Link 3</a>
+                <a href="#">Link 3</a>
               </li>
               <li>
-                <a href="#!">Link 4</a>
+                <a href="#">Link 4</a>
               </li>
             </ul>
           </Col>
@@ -36,16 +36,16 @@ export function Footer() {
             <h5 className="text-uppercase">Links</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#!">Link 1</a>
+                <a href="#">Link 1</a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
+                <a href="#">Link 2</a>
               </li>
               <li>
-                <a href="#!">Link 3</a>
+                <a href="#">Link 3</a>
               </li>
               <li>
-                <a href="#!">Link 4</a>
+                <a href="#">Link 4</a>
               </li>
             </ul>
           </Col>

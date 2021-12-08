@@ -8,7 +8,10 @@ import { useNavigate } from "react-router-dom";
 export const StudentsTable = () => {
   const [state, dispatch] = useStateProvider();
   const deleteTrainer = (id) =>
-    dispatch({ type: actionTypes.delete, payload: { statePart: "trainerState", id } });
+    dispatch({
+      type: actionTypes.delete,
+      payload: { statePart: "trainerState", id },
+    });
   const navigate = useNavigate();
 
   return (
@@ -30,7 +33,7 @@ export const StudentsTable = () => {
               return (
                 <tr
                   key={student.id}
-                  onClick={() => navigate(`/students/${student.lastName.toLowerCase()}`)}
+                  onClick={() => navigate(`/students/${student.id}`)}
                 >
                   <th scope="row">{index + 1}</th>
                   <td>{student.firstName}</td>

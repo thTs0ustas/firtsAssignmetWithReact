@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { actionTypes, useStateProvider } from "../../contextApi/state";
 import { formValidation } from "../../customFunctions/formValidation";
+import { randomId } from "../../customFunctions/randomIdBuilder";
 
-let idCounter = 0;
 const trainerInitial = {
   firstName: "",
   lastName: "",
   email: "",
   courseSelect: "",
-  id: idCounter,
+  id: "",
 };
 
 export const useTrainers = () => {
@@ -21,15 +21,17 @@ export const useTrainers = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // TODO: Better validation
-    for (let i in trainersInput) {
-      if (trainersInput[i] === "") {
-        return alert("All inputs must be filled");
+
+    for (let i in errors) {
+      if (errors[i] === "" || errors[i] === "invalid") {
+        return alert("Please correctly fill all the fields");
       }
     }
     setTrainersInput(trainerInitial);
-    dispatch({ type: actionTypes.trState, payload: { ...trainersInput, id: idCounter } });
-    idCounter++;
+    dispatch({
+      type: actionTypes.trState,
+      payload: { ...trainersInput, id: randomId() },
+    });
   };
 
   const onChange = (event) => {
