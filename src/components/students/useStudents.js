@@ -29,14 +29,17 @@ export const useStudents = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(errors);
+
     for (let i in errors) {
       if (errors[i] === "" || errors[i] === "invalid") {
         return alert("Please correctly fill all the fields");
       }
     }
     setStudentsInputInput(studentInitial);
-    dispatch({ type: actionTypes.stState, payload: { ...studentsInput, id: idCounter } });
+    dispatch({
+      type: actionTypes.stState,
+      payload: { ...studentsInput, id: idCounter },
+    });
     idCounter++;
   };
   const onChange = (event) => {
