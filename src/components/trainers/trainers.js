@@ -3,18 +3,19 @@ import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 
 import "./trainers.css";
 import { useTrainers } from "./useTrainers";
-import { useStateProvider } from "../../contextApi/state";
+import PropTypes from "prop-types";
 
-export const Trainers = () => {
-  const [state] = useStateProvider();
-  const { trainersInput, onSubmit, onChange, errors } = useTrainers();
+export const Trainers = ({ languages, dispatch }) => {
+  const { trainersInput, onSubmit, onChange, errors } = useTrainers(dispatch);
 
   return (
     <div className="outer-div">
       <div id="trainersForm">
         <Container className="trainer-container">
           <Form onSubmit={onSubmit}>
-            <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12">Trainer Registration</h3>
+            <h3 className="mb-3 col-md-10 offset-md-1 col-sm-12">
+              Trainer Registration
+            </h3>
             <FormGroup className="mb-3 col-md-10 offset-md-1 col-sm-12 ">
               <Label for="firstName">First Name</Label>
               <Input
@@ -63,7 +64,7 @@ export const Trainers = () => {
                 onChange={onChange}
               >
                 <option>-</option>
-                {state.languages.map((language) => (
+                {languages.map((language) => (
                   <React.Fragment key={language}>
                     <option>{language}</option>
                   </React.Fragment>
@@ -83,4 +84,9 @@ export const Trainers = () => {
       </div>
     </div>
   );
+};
+
+Trainers.propTypes = {
+  languages: PropTypes.array,
+  dispatch: PropTypes.func,
 };

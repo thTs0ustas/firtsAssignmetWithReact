@@ -13,8 +13,11 @@ import {
   Row,
 } from "reactstrap";
 import "./individualStudent.css";
-export const IndividualStudent = () => {
+import PropTypes from "prop-types";
+
+export const IndividualStudent = ({ studentState }) => {
   const { id } = useParams();
+  console.log(studentState);
   return (
     <Container>
       <Row className="gutters">
@@ -171,4 +174,8 @@ export const IndividualStudent = () => {
       </Row>
     </Container>
   );
+};
+
+IndividualStudent.propTypes = {
+  studentState: PropTypes.array,
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { actionTypes, useStateProvider } from "../../contextApi/state";
+import { actionTypes } from "../../contextApi/state";
 import { formValidation } from "../../customFunctions/formValidation";
 import { randomId } from "../../customFunctions/randomIdBuilder";
 
@@ -12,7 +12,7 @@ const studentInitial = {
   id: "",
 };
 
-export const useStudents = () => {
+export const useStudents = (dispatch) => {
   const [studentsInput, setStudentsInputInput] = useState(studentInitial);
   const [errors, setErrors] = useState({
     emailValid: "",
@@ -21,7 +21,8 @@ export const useStudents = () => {
     dateOfBirthValid: "",
     courseSelectValid: "",
   });
-  const [, dispatch] = useStateProvider();
+
+  // const [, dispatch] = useStateProvider();
 
   useEffect(() => {
     formValidation(studentsInput, setErrors);
@@ -44,10 +45,10 @@ export const useStudents = () => {
   const onChange = (event) => {
     event.preventDefault();
 
-    setStudentsInputInput({
-      ...studentsInput,
+    setStudentsInputInput((prevState) => ({
+      ...prevState,
       [event.target.id]: event.target.value,
-    });
+    }));
   };
   return { studentsInput, onSubmit, onChange, errors };
 };
