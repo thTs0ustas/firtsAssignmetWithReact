@@ -49,7 +49,12 @@ const App = () => {
         />
         <Route
           path="/students/:id"
-          element={<IndividualStudent studentState={studentState} />}
+          element={
+            <IndividualStudent
+              studentState={studentState}
+              dispatch={dispatch}
+            />
+          }
         />
       </Routes>
 

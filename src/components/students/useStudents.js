@@ -22,8 +22,6 @@ export const useStudents = (dispatch) => {
     courseSelectValid: "",
   });
 
-  // const [, dispatch] = useStateProvider();
-
   useEffect(() => {
     formValidation(studentsInput, setErrors);
   }, [studentsInput]);
@@ -39,7 +37,21 @@ export const useStudents = (dispatch) => {
     setStudentsInputInput(studentInitial);
     dispatch({
       type: actionTypes.stState,
-      payload: { ...studentsInput, id: randomId() },
+      payload: {
+        ...studentsInput,
+        id: randomId(),
+        assignments: [],
+        studentInfo: {
+          About: "",
+          completedAssignments: [],
+          Address: {
+            street: "",
+            city: "",
+            state: "",
+            zipCode: "",
+          },
+        },
+      },
     });
   };
   const onChange = (event) => {
