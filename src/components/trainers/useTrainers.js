@@ -29,10 +29,7 @@ export const useTrainers = (dispatch) => {
       }
     }
     setTrainersInput(trainerInitial);
-    dispatch({
-      type: actions.trState,
-      payload: { ...trainersInput, id: randomId() },
-    });
+    dispatch(actions.trState({ ...trainersInput, id: randomId() }));
   };
 
   const onChange = (event) => {

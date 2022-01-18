@@ -21,10 +21,7 @@ export const useIndividualStudent = (state, dispatch) => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    dispatch({
-      type: actions.stState,
-      payload: { ...formInputs },
-    });
+    dispatch(actions.stState({ ...formInputs }));
   };
 
   const onChangeAddress = (event) => {

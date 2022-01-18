@@ -1,17 +1,16 @@
 import React from "react";
-import { actions } from "../../model";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+
 import { Button, Container, Table } from "reactstrap";
 import { RiDeleteBin6Fill } from "react-icons/all";
+
+import { actions } from "../../model";
 import "./trainersTable.css";
-import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 
 export const TrainersTable = ({ trainerState, dispatch }) => {
   const deleteTrainer = (id) =>
-    dispatch({
-      type: actions.delete,
-      payload: { statePart: "trainerState", id },
-    });
+    dispatch(actions.delete({ statePart: "trainerState", id }));
   const navigate = useNavigate();
   return (
     <div className="outer-table">

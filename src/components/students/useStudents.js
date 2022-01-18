@@ -35,9 +35,8 @@ export const useStudents = (dispatch) => {
       }
     }
     setStudentsInputInput(studentInitial);
-    dispatch({
-      type: actions.stState,
-      payload: {
+    dispatch(
+      actions.stState({
         ...studentsInput,
         id: randomId(),
         assignments: [],
@@ -51,8 +50,8 @@ export const useStudents = (dispatch) => {
             zipCode: "",
           },
         },
-      },
-    });
+      })
+    );
   };
   const onChange = (event) => {
     event.preventDefault();

@@ -8,10 +8,7 @@ import PropTypes from "prop-types";
 
 export const StudentsTable = ({ studentState, dispatch }) => {
   const deleteTrainer = (id) =>
-    dispatch({
-      type: actions.delete,
-      payload: { statePart: "studentState", id },
-    });
+    dispatch(actions.delete({ statePart: "studentState", id }));
   const navigate = useNavigate();
 
   return (
