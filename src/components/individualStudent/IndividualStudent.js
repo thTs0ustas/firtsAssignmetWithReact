@@ -245,10 +245,10 @@ export const IndividualStudent = ({ studentState, dispatch }) => {
                             <tr key={assignment.id}>
                               <th scope="row">{index + 1}</th>
                               <td>{assignment.title}</td>
-                              <td>{assignment.courseRelation}</td>
-                              <td>{assignment.deadline}</td>
-                              <td>{assignment.oralMark}</td>
-                              <td>{assignment.totalMark}</td>
+                              <td>{assignment["courseRelation"]}</td>
+                              <td>{assignment["deadline"]}</td>
+                              <td>{assignment["oralMark"]}</td>
+                              <td>{assignment["totalMark"]}</td>
                             </tr>
                           );
                         })}
