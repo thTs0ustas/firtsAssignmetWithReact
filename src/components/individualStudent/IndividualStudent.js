@@ -45,7 +45,7 @@ export const IndividualStudent = ({ studentState, dispatch }) => {
     <div className="background-div">
       <Container>
         <Row className="gutters">
-          <Col className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <Col className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 h-50 ">
             <Card className="h-100">
               <CardBody>
                 <div className="account-settings">

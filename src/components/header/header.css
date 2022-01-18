@@ -1,31 +1,30 @@
 .bg-header {
-    background: linear-gradient(45deg, rgba(45, 3, 23, 0.7), #23375e);
-    /*color: #5e3131;*/
-    box-shadow: 1px 0 10px #000;
+  background: linear-gradient(45deg, rgba(45, 3, 23, 0.7), #23375e);
+  /*color: #5e3131;*/
+  box-shadow: 1px 0 10px #000;
 }
-.custom-link{
-    color: #be0e0e;
+.custom-link {
+  color: #be0e0e;
 }
 
 .nv-header {
-    color: #ffffff;
-    text-shadow: 1px 0 10px #211111;
-
+  color: #ffffff;
+  text-shadow: 1px 0 10px #211111;
 }
 .custom-nav {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 .custom-nav a {
-    color: #165be7;
-    display: inline-block;
-    padding-left: 10px;
-    text-decoration: none;
+  color: #165be7;
+  display: inline-block;
+  padding-left: 10px;
+  text-decoration: none;
 }
 .logo {
-    background: url("../../assets/stumbleupon.png") no-repeat center;
-    background-size: cover;
-    height: 50px;
-    width: 50px;
+  background: url("../../assets/stumbleupon.png") no-repeat center;
+  background-size: cover;
+  height: 50px;
+  width: 50px;
 }

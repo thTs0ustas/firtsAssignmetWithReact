@@ -20,7 +20,10 @@ export function Header() {
     <div className="bg-header">
       <Navbar className="" expand="md" dark>
         <Link className="navbar-brand logo" to="/" />
-        <NavbarToggler className="nv-header me-2" onClick={() => setIsOpen(!isOpen)} />
+        <NavbarToggler
+          className="nv-header me-2"
+          onClick={() => setIsOpen(!isOpen)}
+        />
         <Collapse navbar isOpen={isOpen}>
           <Nav className="me-auto align-items-md-center custom-nav" navbar>
             <NavItem>
@@ -57,12 +60,20 @@ export function Header() {
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link className={"nav-link"} style={{ color: "#1d1010" }} to={"/"}>
+                  <Link
+                    className={"nav-link"}
+                    style={{ color: "#1d1010" }}
+                    to={"/"}
+                  >
                     Courses
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link className={"nav-link"} style={{ color: "#1d1010" }} to={"/"}>
+                  <Link
+                    className={"nav-link"}
+                    style={{ color: "#1d1010" }}
+                    to={"/"}
+                  >
                     Assignments
                   </Link>
                 </DropdownItem>

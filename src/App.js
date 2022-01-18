@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Footer } from "./components";
 import { Trainers } from "./components";
@@ -11,11 +12,13 @@ import { Students } from "./components";
 import { IndividualTrainer } from "./components/individualTrainer/individualTrainer";
 import { StudentsTable } from "./components";
 import { IndividualStudent } from "./components";
-import { useStateProvider } from "./contextApi/state";
+// import { useStateProvider } from "./contextApi/state";
 
 const App = () => {
-  const [{ trainerState, studentState, languages }, dispatch] =
-    useStateProvider();
+  const { trainerState, studentState, languages } = useSelector(
+    (state) => state
+  );
+  const dispatch = useDispatch();
 
   return (
     <>

@@ -52,8 +52,14 @@ export function Footer() {
         </Row>
         <Row>
           <div className="footer-copyright text-center py-3">
-            © 2021 Copyright:
-            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+            © 2021 Copyright: &nbsp;
+            <a
+              href="https://github.com/thTs0ustas"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Thanos Tsoustas
+            </a>
           </div>
         </Row>
       </Container>

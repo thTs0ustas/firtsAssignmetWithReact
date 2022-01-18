@@ -1,16 +1,21 @@
+// import { StateProvider } from "./contextApi/state";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import store from "./store/store";
 
-import { StateProvider } from "./contextApi/state";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <StateProvider>
+  // <StateProvider>
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StateProvider>,
+  </Provider>,
+  // </StateProvider>,
   document.getElementById("root")
 );
