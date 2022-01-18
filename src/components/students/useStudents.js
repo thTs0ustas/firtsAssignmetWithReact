@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { actionTypes } from "../../contextApi/state";
+import { actions } from "../../model";
 import { formValidation } from "../../customFunctions/formValidation";
 import { randomId } from "../../customFunctions/randomIdBuilder";
 
@@ -36,7 +36,7 @@ export const useStudents = (dispatch) => {
     }
     setStudentsInputInput(studentInitial);
     dispatch({
-      type: actionTypes.stState,
+      type: actions.stState,
       payload: {
         ...studentsInput,
         id: randomId(),

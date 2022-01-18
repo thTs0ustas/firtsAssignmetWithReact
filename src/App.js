@@ -3,21 +3,24 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Footer } from "./components";
-import { Trainers } from "./components";
-import { Home } from "./components";
-import { TrainersTable } from "./components";
-import { Header } from "./components";
-import { Students } from "./components";
+import {
+  Footer,
+  Header,
+  Home,
+  IndividualStudent,
+  Students,
+  StudentsTable,
+  Trainers,
+  TrainersTable,
+} from "./components";
 import { IndividualTrainer } from "./components/individualTrainer/individualTrainer";
-import { StudentsTable } from "./components";
-import { IndividualStudent } from "./components";
-// import { useStateProvider } from "./contextApi/state";
+// import { useStateProvider } from "./_contextApi/state";
 
 const App = () => {
   const { trainerState, studentState, languages } = useSelector(
-    (state) => state
+    ({ stateReducer }) => stateReducer
   );
+
   const dispatch = useDispatch();
 
   return (

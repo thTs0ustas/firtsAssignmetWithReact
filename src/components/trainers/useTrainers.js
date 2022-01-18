@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { actionTypes } from "../../contextApi/state";
+// import { actionTypes } from "../../_contextApi/state";
+import { actions } from "../../model";
 import { formValidation } from "../../customFunctions/formValidation";
 import { randomId } from "../../customFunctions/randomIdBuilder";
 
@@ -13,8 +14,8 @@ const trainerInitial = {
 
 export const useTrainers = (dispatch) => {
   const [trainersInput, setTrainersInput] = useState(trainerInitial);
-  // const [, dispatch] = useStateProvider();
   const [errors, setErrors] = useState({});
+
   useEffect(() => {
     formValidation(trainersInput, setErrors);
   }, [trainersInput]);
@@ -29,7 +30,7 @@ export const useTrainers = (dispatch) => {
     }
     setTrainersInput(trainerInitial);
     dispatch({
-      type: actionTypes.trState,
+      type: actions.trState,
       payload: { ...trainersInput, id: randomId() },
     });
   };

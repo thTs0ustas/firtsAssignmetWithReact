@@ -1,5 +1,5 @@
 import React from "react";
-import { actionTypes } from "../../contextApi/state";
+import { actions } from "../../model";
 import { Button, Container, Table } from "reactstrap";
 import { RiDeleteBin6Fill } from "react-icons/all";
 import "./studentsTable.css";
@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 export const StudentsTable = ({ studentState, dispatch }) => {
   const deleteTrainer = (id) =>
     dispatch({
-      type: actionTypes.delete,
+      type: actions.delete,
       payload: { statePart: "studentState", id },
     });
   const navigate = useNavigate();

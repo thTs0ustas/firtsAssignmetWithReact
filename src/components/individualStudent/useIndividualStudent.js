@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { formValidation } from "../../customFunctions/formValidation";
-import { actionTypes } from "../../contextApi/state";
+import { actions } from "../../model";
 import { set } from "lodash/fp";
 
 export const useIndividualStudent = (state, dispatch) => {
@@ -22,7 +22,7 @@ export const useIndividualStudent = (state, dispatch) => {
     event.preventDefault();
 
     dispatch({
-      type: actionTypes.stState,
+      type: actions.stState,
       payload: { ...formInputs },
     });
   };
